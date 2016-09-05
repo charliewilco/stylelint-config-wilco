@@ -9,6 +9,7 @@ const functions = require('./rules/functions')
 const values = require('./rules/value-list')
 const atRule = require('./rules/at-rule')
 const units = require('./rules/units')
+const property = require('./rules/property')
 const customProps = require('./rules/custom-props')
 
 const misc = {
@@ -22,16 +23,17 @@ const misc = {
   'no-extra-semicolons': true,
   'no-invalid-double-slash-comments': true,
   'no-missing-end-of-source-newline': true,
-  'number-leading-zero': 'always',
+  'number-leading-zero': 'never',
   'number-no-trailing-zeros': true,
-  'property-case': 'lower',
-  'property-no-unknown': true,
+
   'shorthand-property-no-redundant-values': true,
   'string-no-newline': true
 }
 
 const wilco = {
-  'rules': _.assignIn(atRule, units, nest, misc, customProps, feature, selectors, functions, colors, declarations, blocks, values)
+  'rules': _.assignIn(atRule, property, units, nest, misc,
+                      customProps, feature, selectors, functions,
+                      colors, declarations, blocks, values)
 }
 
 module.exports = wilco
